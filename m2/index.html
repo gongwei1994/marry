@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=yes"/>
+    <title>龚伟❤️柯凤雏的婚礼邀请</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            background: #fff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            padding-bottom: 50px;
+        }
+
+        /* 头部背景图片 */
+        .header-section {
+            position: relative;
+            height: 25vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        @media screen and (min-width: 769px) {
+            .header-section {
+                height: 100vh;
+            }
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+        }
+
+        /* 段落标题 */
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #ff4757;
+            border-left: 4px solid #ff4757;
+            padding-left: 10px;
+        }
+
+        /* 段落文本 */
+        .section-content {
+            margin: 20px 0;
+            text-indent: 2em;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .section-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 照片样式 */
+        .birth-photos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .birth-photo {
+            width: 25vw;
+            height: 16.67vh;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.8s ease;
+        }
+
+        .birth-photo.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .story-photo {
+            width: calc(100% - 25vw);
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .story-photo.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 日历样式 */
+        .calendar {
+            width: 200px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 15px auto;
+            overflow: hidden;
+        }
+
+        .calendar-header {
+            background: #ff4757;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .calendar-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calendar-date {
+            font-size: 36px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .calendar-weekday {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* 地址部分 */
+        .address-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .address-title {
+            font-size: 22px;
+            color: #ff4757;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .address-links {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .address-links a {
+            display: inline-block;
+            color: #2196f3;
+            text-decoration: none;
+            margin: 5px 10px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: #e3f2fd;
+            transition: all 0.3s ease;
+        }
+
+        /* 联系方式部分 */
+        .contact-section {
+            margin: 40px 0 20px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to right, #fff5f5, #fff);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-number {
+            font-size: 18px;
+            color: #ff4757;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: rgba(255,71,87,0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* 移动端适配 */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .birth-photos {
+                flex-direction: column;
+            }
+
+            .birth-photo {
+                width: 80vw;
+                height: 50vw;
+            }
+
+            .story-photo {
+                width: 90%;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* 在 style 标签中添加音乐控制样式 */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .music-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: rotate 3s linear infinite;
+        }
+
+        .music-btn.paused {
+            animation-play-state: paused;
+        }
+
+        .music-icon {
+            font-size: 24px;
+            color: #ff4757;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 恢复原有的照片网格布局样式 */
+        .wedding-photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 两列布局 */
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .wedding-photo {
+            width: 100%;
+            aspect-ratio: 3/4; /* 保持照片比例 */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.8s ease;
+        }
+
+        .wedding-photo.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 最后一张照片特殊处理（14.jpg） */
+        .wedding-photo.full-width {
+            grid-column: 1 / -1;
+            aspect-ratio: auto;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        /* 移动端适配 */
+        @media screen and (max-width: 768px) {
+            .wedding-photos {
+                gap: 10px;
+            }
+            
+            .wedding-photo {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 音频元素 -->
+    <audio id="bgMusic" loop>
+        <source src="music/m1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 添加音乐控制按钮 -->
+    <div class="music-control">
+        <div class="music-btn" id="musicBtn">
+            <i class="music-icon">🎵</i>
+        </div>
+    </div>
+
+    <!-- 头部背景 -->
+    <div class="header-section">
+        <img src="images/8.jpg" alt="背景图片" class="header-bg">
+        <div class="header-overlay"></div>
+    </div>
+
+    <div class="container">
+        <!-- 出生部分 -->
+        <div class="section-title">1. 出生</div>
+        <div class="section-content">1994年12月14日腊月我出生了。</div>
+        <div class="section-content">1996年4月2日春天我出生了。</div>
+        <div class="birth-photos">
+            <img src="images/1.jpg" alt="男孩照片" class="birth-photo">
+            <img src="images/2.jpg" alt="女孩照片" class="birth-photo">
+        </div>
+
+        <div class="section-content">
+            当两个小生命在不同的家庭、不同的城市里降临到这个世界。他们的哭声，虽然微弱，却预示着一段美丽的缘分即将展开。这两个孩子，一个叫龚伟，一个叫柯凤雏，他们的眼睛清澈如水，对未来充满了无限的好奇和期待。
+        </div>
+
+        <!-- 相遇部分 -->
+        <div class="section-title">2. 相遇</div>
+        <div class="section-content">
+            随着时间的流逝，这两个孩子慢慢长大，直到有一天，他们在上海相遇。在街头他们的目光在不经意间交汇，那一刻，仿佛时间都静止了。他们开始交谈，发现彼此有着共同的兴趣和梦想。友谊的种子在他们的心中悄悄萌芽，随着时间的推移，这份友谊逐渐升华为深深的爱意。
+        </div>
+        <img src="images/3.jpg" alt="相遇照片" class="story-photo">
+
+        <!-- 相知部分 -->
+        <div class="section-title">3. 相知</div>
+        <div class="section-content">
+            相处的日子里他们一起出去游玩，经过相遇、相识、相知、相爱，两个人的心紧紧相依，爱意随风起，风止意难平。
+        </div>
+        <img src="images/4.jpg" alt="相知照片" class="story-photo">
+
+        <!-- 求婚部分 -->
+        <div class="section-title">4. 求婚</div>
+        <div class="section-content">
+            几年后，男孩决定是时候迈出那一步了。他计划了一个完美的求婚。在一个星光璀璨的夜晚，男孩单膝跪地，手中拿着一枚闪耀的戒指，眼中充满了爱意。他说："从我们相遇的那天起，我就知道，你就是我一直在寻找的那个人。你愿意嫁给我吗？"女孩的眼中闪烁着泪光，她微笑着点了点头，那一刻，他们的心紧紧相连。
+        </div>
+        <img src="images/5.jpg" alt="求婚照片" class="story-photo">
+
+        <!-- 结婚部分 -->
+        <div class="section-title">5. 结婚</div>
+        <div class="section-content">
+            浅喜似苍狗，深爱如长风，我们终于来到了故事的关键点，我们即将步入了婚姻的殿堂。男孩举着最美的手捧花，女孩盛装婚礼，期望在亲朋好友的见证下，举行盛大的婚礼，交换誓言和戒指，承诺无论顺境还是逆境，衷心不负、朝朝暮暮。
+        </div>
+
+        <!-- 婚纱照展示 -->
+        <div class="wedding-photos">
+            <!-- 第一组照片 -->
+            <img src="images/6.jpg" alt="婚纱照" class="wedding-photo">
+            <img src="images/7.jpg" alt="婚纱照" class="wedding-photo">
+            <img src="images/10.jpg" alt="婚纱照" class="wedding-photo">
+            <img src="images/11.jpg" alt="婚纱照" class="wedding-photo">
+        </div>
+
+        <div class="wedding-photos">
+            <!-- 第二组照片 -->
+            <img src="images/12.jpg" alt="婚纱照" class="wedding-photo">
+            <img src="images/13.jpg" alt="婚纱照" class="wedding-photo">
+            <img src="images/14.jpg" alt="婚纱照" class="wedding-photo full-width">
+        </div>
+
+        <!-- 婚宴信息 -->
+        <div class="address-section">
+            <div class="address-title">娘家宴会</div>
+            <div class="calendar">
+                <div class="calendar-header">2024年2月</div>
+                <div class="calendar-body">
+                    <div class="calendar-date">2</div>
+                    <div class="calendar-weekday">星期五</div>
+                </div>
+            </div>
+            <div class="address-content">杨闸村</div>
+            <div class="address-links">
+                <a href="https://surl.amap.com/5kZyNQQIZ2uW" target="_blank">高德地图导航</a>
+                <a href="https://j.map.baidu.com/20/Ur2i" target="_blank">百度地图导航</a>
+            </div>
+        </div>
+
+        <div class="address-section">
+            <div class="address-title">婆家宴会</div>
+            <div class="calendar">
+                <div class="calendar-header">2024年2月</div>
+                <div class="calendar-body">
+                    <div class="calendar-date">3</div>
+                    <div class="calendar-weekday">星期六</div>
+                </div>
+            </div>
+            <div class="address-content">富春大酒店</div>
+            <div class="address-links">
+                <a href="https://surl.amap.com/5a1JjAaU1j14y" target="_blank">高德地图导航</a>
+                <a href="https://j.map.baidu.com/ea/h-2i" target="_blank">百度地图导航</a>
+            </div>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="contact-section">
+            <div class="contact-title">联系我们</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">新郎：</span>
+                    <a href="tel:18094614275" class="contact-number">180-9461-4275</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">新娘：</span>
+                    <a href="tel:13685601989" class="contact-number">136-8560-1989</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 观察者配置
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        // 添加观察
+        document.querySelectorAll('.section-content, .birth-photo, .story-photo, .wedding-photo').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 自动滚动
+        let isScrolling = true;
+        let scrollSpeed = 0.5;
+        let lastTime = null;
+
+        function autoScroll(currentTime) {
+            if (!lastTime) lastTime = currentTime;
+            const deltaTime = currentTime - lastTime;
+            lastTime = currentTime;
+
+            if (isScrolling) {
+                const scrollHeight = document.documentElement.scrollHeight;
+                const clientHeight = document.documentElement.clientHeight;
+                const maxScroll = scrollHeight - clientHeight;
+                
+                if (window.scrollY < maxScroll) {
+                    window.scrollTo(0, window.scrollY + (scrollSpeed * deltaTime / 16));
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+
+        // 页面加载完成后开始自动滚动
+        window.addEventListener('load', () => {
+            requestAnimationFrame(autoScroll);
+        });
+
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+
+        // 简单的播放函数
+        function playMusic() {
+            bgMusic.play().catch(error => {
+                // 如果自动播放失败，等待用户交互
+                document.addEventListener('click', function initPlay() {
+                    bgMusic.play();
+                    document.removeEventListener('click', initPlay);
+                }, { once: true });
+            });
+        }
+
+        // 音乐控制按钮点击事件
+        musicBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.classList.remove('paused');
+            } else {
+                bgMusic.pause();
+                musicBtn.classList.add('paused');
+            }
+        });
+
+        // 页面加载完成后尝试播放
+        window.addEventListener('load', playMusic);
+
+        // 用户交互时播放
+        document.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.classList.remove('paused');
+            }
+        }, { once: true });
+
+        // 页面可见性变化时处理
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && !bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.classList.remove('paused');
+            }
+        });
+    </script>
+</body>
+</html> 
